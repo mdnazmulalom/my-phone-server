@@ -21,8 +21,10 @@ app.get('/phones', (req, res) => {
 })
 
 app.get('/phones/:id', (req, res) => {
-    const id = req.params.id;
-    console.log('i need data from id', id);
+    const id = parseInt(req.params.id);
+    // console.log('i need data from id', id);
+    const phone = phones.find(phone => phone.id === id ) || {};
+    res.send(phone);
 
 })
 
